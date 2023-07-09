@@ -1,0 +1,53 @@
+diff --git a/wordpress/wp-content/plugins/sg-security/core/Helper/Helper.php b/wordpress/wp-content/plugins/sg-security/core/Helper/Helper.php
+--- a/wordpress/wp-content/plugins/sg-security/core/Helper/Helper.php
++++ b/wordpress/wp-content/plugins/sg-security/core/Helper/Helper.php
+@@ -21,11 +21,20 @@ class Helper {
+ 	public static function get_current_user_ip() {
+ 		$keys = array( 'REMOTE_ADDR' );
+ 
+-		if (
+-			defined( 'SGS_HEADER' ) &&
+-			SGS_HEADER === 'X-Forwarded-For'
+-		) {
+-			array_unshift( $keys, 'HTTP_X_FORWARDED_FOR' );
++		if ( defined( 'SGS_HEADER' ) && is_string( SGS_HEADER ) ) {
++			// SGS_HEADER can define multiple Headers to check (coma separated)
++			$sgs_headers = array_filter( array_map( 'trim', explode( ',', SGS_HEADER ) ) );
++
++			foreach ( $sgs_headers as $sgs_header ) {
++				// If the header is not UPPERCASE_UNDERSCORE_FORMATED,
++				// is expected to be Camelcase-Dashed-Formated
++				// in that case is converted to HTTP_CAMELCASE_DASHED_FORMATED
++				if ( ! preg_match( '/^[A-Z_]+$/', $sgs_header ) ) {
++					$sgs_header = 'HTTP_' . strtoupper( str_replace( '-', '_', $sgs_header ) );
++				}
++
++				array_unshift( $keys, $sgs_header );
++			}
+ 		}
+ 
+ 		foreach ( $keys as $key ) {
+@@ -33,12 +42,18 @@ class Helper {
+ 		   if ( ! isset( $_SERVER[ $key ] ) ) {
+ 			  continue;
+ 		   }
+-		   // Bail if the IP is not valid.
+-		   if ( ! filter_var( $_SERVER[ $key ], FILTER_VALIDATE_IP ) ) { //phpcs:ignore
+-			  continue;
++
++		   // Split coma separated IPs
++		   $ips = array_filter( array_map( 'trim', explode( ',', $_SERVER[ $key ] ) ) );
++
++		   foreach ( $ips as $ip ) {
++			   // Bail if the IP is not valid.
++			   if ( ! filter_var( $ip, FILTER_VALIDATE_IP ) ) { //phpcs:ignore
++				  continue;
++			   }
++			   // Return the users's IP Address.
++			   return preg_replace( '/^::1$/', '127.0.0.1', $ip ); //phpcs:ignore
+ 		   }
+-		   // Return the users's IP Address.
+-		   return preg_replace( '/^::1$/', '127.0.0.1', $_SERVER[ $key ] ); //phpcs:ignore
+ 		}
+ 		// Return the local IP by default.
+ 		return '127.0.0.1';

@@ -1,0 +1,35 @@
+diff --git a/wordpress/wp-content/plugins/enable-media-replace/classes/emr-plugin.php b/wordpress/wp-content/plugins/enable-media-replace/classes/emr-plugin.php
+--- a/wordpress/wp-content/plugins/enable-media-replace/classes/emr-plugin.php
++++ b/wordpress/wp-content/plugins/enable-media-replace/classes/emr-plugin.php
+@@ -218,7 +218,7 @@ class EnableMediaReplacePlugin
+                 wp_enqueue_style('jquery-ui-datepicker');
+                 wp_enqueue_script('emr_admin');
+ 
+-								$this->uiHelper()->featureNotice();
++								// $this->uiHelper()->featureNotice();
+ 
+                 if ($action == 'media_replace') {
+                     if (array_key_exists("attachment_id", $_GET) && intval($_GET["attachment_id"]) > 0) {
+diff --git a/wordpress/wp-content/plugins/enable-media-replace/classes/uihelper.php b/wordpress/wp-content/plugins/enable-media-replace/classes/uihelper.php
+--- a/wordpress/wp-content/plugins/enable-media-replace/classes/uihelper.php
++++ b/wordpress/wp-content/plugins/enable-media-replace/classes/uihelper.php
+@@ -440,6 +440,8 @@ class UIHelper
+ 
+ 	public function isBackgroundRemovable($post)
+ 	{
++      return false;
++
+ 		  if (false === wp_attachment_is_image($post))
+ 				return false;
+ 
+diff --git a/wordpress/wp-content/plugins/enable-media-replace/css/admin.css b/wordpress/wp-content/plugins/enable-media-replace/css/admin.css
+--- a/wordpress/wp-content/plugins/enable-media-replace/css/admin.css
++++ b/wordpress/wp-content/plugins/enable-media-replace/css/admin.css
+@@ -1,3 +1,7 @@
++.upsell-wrapper {
++  display: none !important;
++}
++
+ .ui-widget-content {
+   border: 1px solid #dddddd;
+   background: #ffffff;
