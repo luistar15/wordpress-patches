@@ -1,0 +1,39 @@
+diff --git a/wordpress/wp-content/plugins/sg-security/core/Encryption_Service/Encryption_Service.php b/wordpress/wp-content/plugins/sg-security/core/Encryption_Service/Encryption_Service.php
+--- a/wordpress/wp-content/plugins/sg-security/core/Encryption_Service/Encryption_Service.php
++++ b/wordpress/wp-content/plugins/sg-security/core/Encryption_Service/Encryption_Service.php
+@@ -48,6 +48,10 @@ class Encryption_Service {
+ 	 * @since 1.3.6
+ 	 */
+ 	public function generate_encryption_file() {
++		if ( defined( 'SGS_ENCRYPTION_KEY' ) ) {
++			return true;
++		}
++
+ 		// Check if the file already exists.
+ 		if ( $this->wp_filesystem->is_file( $this->encryption_key_file ) ) {
+ 			// Validate the file content.
+@@ -83,6 +87,10 @@ class Encryption_Service {
+ 	 * @return mixed False if the key is not valid/existing, encryption key string on successfull validation.
+ 	 */
+ 	public function get_encryption_key() {
++		if ( defined( 'SGS_ENCRYPTION_KEY' ) ) {
++			return base64_decode( SGS_ENCRYPTION_KEY, true );
++		}
++
+ 		// Bail if file does not exist.
+ 		if ( ! $this->wp_filesystem->is_file( $this->encryption_key_file ) ) {
+ 			return false;
+diff --git a/wordpress/wp-content/plugins/sg-security/core/Sg_2fa/Sg_2fa.php b/wordpress/wp-content/plugins/sg-security/core/Sg_2fa/Sg_2fa.php
+--- a/wordpress/wp-content/plugins/sg-security/core/Sg_2fa/Sg_2fa.php
++++ b/wordpress/wp-content/plugins/sg-security/core/Sg_2fa/Sg_2fa.php
+@@ -890,6 +890,10 @@ class Sg_2fa {
+ 	 * @since  1.3.6
+ 	 */
+ 	public function move_encryption_file() {
++		if ( defined( 'SGS_ENCRYPTION_KEY' ) ) {
++			return;
++		}
++
+ 		// Setup the WP Filesystem.
+ 		$wp_filesystem = Helper_Service::setup_wp_filesystem();
+ 

@@ -55,6 +55,10 @@ Example:
 - Fix capture user real ip
 - https://wordpress.org/support/topic/issues-working-behind-proxy-getting-blocked/#post-16653651
 
+### `encryption-key-constant.diff`
+- Use SGS_ENCRYPTION_KEY constant instead of file
+- https://wordpress.org/support/topic/read-sgs_encryption_key-from-constant-instead-of-file/
+
 
 ## Plugin: enable-media-replace (4.1.2)
 
