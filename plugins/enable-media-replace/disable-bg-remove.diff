@@ -1,27 +1,55 @@
+diff --git a/wordpress/wp-content/plugins/enable-media-replace/classes/ViewController.php b/wordpress/wp-content/plugins/enable-media-replace/classes/ViewController.php
+--- a/wordpress/wp-content/plugins/enable-media-replace/classes/ViewController.php
++++ b/wordpress/wp-content/plugins/enable-media-replace/classes/ViewController.php
+@@ -159,8 +159,7 @@ abstract class ViewController
+ 
+ 		protected function viewSuccess()
+ 		{
+-			 wp_enqueue_script('emr_success');
+-			 $this->loadView('success');
++			 echo "<script>window.location='{$this->view->postUrl}';</script>";
+ 			 exit();
+ 		}
+ 
 diff --git a/wordpress/wp-content/plugins/enable-media-replace/classes/emr-plugin.php b/wordpress/wp-content/plugins/enable-media-replace/classes/emr-plugin.php
 --- a/wordpress/wp-content/plugins/enable-media-replace/classes/emr-plugin.php
 +++ b/wordpress/wp-content/plugins/enable-media-replace/classes/emr-plugin.php
-@@ -218,7 +218,7 @@ class EnableMediaReplacePlugin
+@@ -218,8 +218,6 @@ class EnableMediaReplacePlugin
                  wp_enqueue_style('jquery-ui-datepicker');
                  wp_enqueue_script('emr_admin');
  
 -								$this->uiHelper()->featureNotice();
-+								// $this->uiHelper()->featureNotice();
- 
+-
                  if ($action == 'media_replace') {
                      if (array_key_exists("attachment_id", $_GET) && intval($_GET["attachment_id"]) > 0) {
+                                 wp_enqueue_script('emr_upsell');
 diff --git a/wordpress/wp-content/plugins/enable-media-replace/classes/uihelper.php b/wordpress/wp-content/plugins/enable-media-replace/classes/uihelper.php
 --- a/wordpress/wp-content/plugins/enable-media-replace/classes/uihelper.php
 +++ b/wordpress/wp-content/plugins/enable-media-replace/classes/uihelper.php
-@@ -440,6 +440,8 @@ class UIHelper
+@@ -440,23 +440,7 @@ class UIHelper
  
  	public function isBackgroundRemovable($post)
  	{
-+      return false;
-+
- 		  if (false === wp_attachment_is_image($post))
- 				return false;
+-		  if (false === wp_attachment_is_image($post))
+-				return false;
+-
+-			if (false === emr()->useFeature('background'))
+-				return false;
+-
+-			$extensions = array('jpg', 'png','jpeg');
+-
+-			$mime = get_post_mime_type($post);
+-			foreach($extensions as $extension)
+-			{
+-				  if (strpos($mime, $extension) !== false )
+-						return true;
+-			}
+-
+ 			return false;
+-
+ 	}
  
+ 	private function getBgremoveUI()
 diff --git a/wordpress/wp-content/plugins/enable-media-replace/css/admin.css b/wordpress/wp-content/plugins/enable-media-replace/css/admin.css
 --- a/wordpress/wp-content/plugins/enable-media-replace/css/admin.css
 +++ b/wordpress/wp-content/plugins/enable-media-replace/css/admin.css

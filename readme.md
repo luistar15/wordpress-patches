@@ -28,7 +28,7 @@ Example:
 > bash /path/to/patches/core/apply.sh
 ```
 
-## Wordpress core (6.3-beta4)
+## Wordpress core (6.3-RC1)
 
 ### `track-22895.diff`
 - Access denied to custom post type listing in admin when his submenu is empty
@@ -64,3 +64,4 @@ Example:
 
 ### `disable-bg-remove.diff`
 - Disable background remover
+- Skip success screen
