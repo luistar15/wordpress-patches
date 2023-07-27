@@ -1,0 +1,12 @@
+diff --git a/wordpress/wp-content/plugins/wp-svg-images/wp-svg-images.php b/wordpress/wp-content/plugins/wp-svg-images/wp-svg-images.php
+--- a/wordpress/wp-content/plugins/wp-svg-images/wp-svg-images.php
++++ b/wordpress/wp-content/plugins/wp-svg-images/wp-svg-images.php
+@@ -278,7 +278,7 @@ if( ! class_exists('WPSVG') ){
+ 
+ 		function fix_missing_width_height_on_image_block( $block_content, $block ){
+ 			if( $block['blockName'] === 'core/image' ){
+-				if( strpos( $block_content, 'width=' ) === false && strpos( $block_content, 'height=' ) === false ){
++				if( strpos( $block_content, 'width=' ) === false && strpos( $block_content, 'height=' ) === false && preg_match( '/src="[^"]+\.svg"/i', $block_content ) ){
+ 					if( isset( $block['attrs'], $block['attrs']['id'] ) && get_post_mime_type( $block['attrs']['id'] ) == 'image/svg+xml' ){
+ 						$svg_path = get_attached_file( $block['attrs']['id'] );
+ 						$dimensions = $this->svg_dimensions( $svg_path );

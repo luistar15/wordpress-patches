@@ -71,3 +71,9 @@ Example:
 
 ### `remove-review-links.diff`
 - Remove noisy review link in plugins list
+
+
+## Plugin: wp-svg-images (4.2)
+
+### `fix-missing-svg-size.diff`
+- Removes unnecesary sql queries when trying to fix missing svg size
