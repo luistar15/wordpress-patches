@@ -1,5 +1,4 @@
 diff --git a/wordpress/wp-content/plugins/slim-seo/src/Activator.php b/wordpress/wp-content/plugins/slim-seo/src/Activator.php
-index 9d5b497..d2fa068 100644
 --- a/wordpress/wp-content/plugins/slim-seo/src/Activator.php
 +++ b/wordpress/wp-content/plugins/slim-seo/src/Activator.php
 @@ -34,9 +34,6 @@ class Activator {

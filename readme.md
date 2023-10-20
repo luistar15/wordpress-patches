@@ -28,7 +28,7 @@ Example:
 > bash /path/to/patches/core/apply.sh
 ```
 
-## Wordpress core (6.3-RC2)
+## Wordpress core (6.3.2)
 
 ### `track-22895.diff`
 - Access denied to custom post type listing in admin when his submenu is empty
@@ -49,7 +49,7 @@ Example:
 - Clone $_POST var before addslashes
 
 
-## Plugin: sg-security (1.4.5)
+## Plugin: sg-security (1.4.6)
 
 ### `capture-real-ip.diff`
 - Fix capture user real ip
@@ -60,14 +60,14 @@ Example:
 - https://wordpress.org/support/topic/read-sgs_encryption_key-from-constant-instead-of-file/
 
 
-## Plugin: enable-media-replace (4.1.2)
+## Plugin: enable-media-replace (4.1.4)
 
 ### `disable-bg-remove.diff`
 - Disable background remover
 - Skip success screen
 
 
-## Plugin: slim-seo (4.1.2)
+## Plugin: slim-seo (3.22.2)
 
 ### `remove-review-links.diff`
 - Remove noisy review link in plugins list
