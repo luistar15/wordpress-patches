@@ -1,7 +1,7 @@
 diff --git a/wordpress/wp-admin/includes/plugin.php b/wordpress/wp-admin/includes/plugin.php
 --- a/wordpress/wp-admin/includes/plugin.php
 +++ b/wordpress/wp-admin/includes/plugin.php
-@@ -2119,8 +2119,17 @@ function get_plugin_page_hookname( $plugin_page, $parent_page ) {
+@@ -2111,8 +2111,17 @@ function get_plugin_page_hookname( $plugin_page, $parent_page ) {
   */
  function user_can_access_admin_page() {
  	global $pagenow, $menu, $submenu, $_wp_menu_nopriv, $_wp_submenu_nopriv,
@@ -22,7 +22,7 @@ diff --git a/wordpress/wp-admin/includes/plugin.php b/wordpress/wp-admin/include
 diff --git a/wordpress/wp-admin/menu.php b/wordpress/wp-admin/menu.php
 --- a/wordpress/wp-admin/menu.php
 +++ b/wordpress/wp-admin/menu.php
-@@ -117,13 +117,12 @@ $types   = (array) get_post_types(
+@@ -115,13 +115,12 @@ $types   = (array) get_post_types(
  		'show_in_menu' => true,
  	)
  );
@@ -40,7 +40,7 @@ diff --git a/wordpress/wp-admin/menu.php b/wordpress/wp-admin/menu.php
  	$ptype_menu_position = is_int( $ptype_obj->menu_position ) ? $ptype_obj->menu_position : ++$_wp_last_object_menu; // If we're to use $_wp_last_object_menu, increment it first.
  	$ptype_for_id        = sanitize_html_class( $ptype );
  
-@@ -152,6 +151,14 @@ foreach ( array_merge( $builtin, $types ) as $ptype ) {
+@@ -150,6 +149,14 @@ foreach ( array_merge( $builtin, $types ) as $ptype ) {
  		$edit_tags_file = "edit-tags.php?taxonomy=%s&amp;post_type=$ptype";
  	}
  
