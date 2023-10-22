@@ -1,0 +1,56 @@
+diff --git a/wordpress/wp-content/plugins/post-types-order/css/cpt-archive-dd.css b/wordpress/wp-content/plugins/post-types-order/css/cpt-archive-dd.css
+--- a/wordpress/wp-content/plugins/post-types-order/css/cpt-archive-dd.css
++++ b/wordpress/wp-content/plugins/post-types-order/css/cpt-archive-dd.css
+@@ -4,11 +4,13 @@
+ #the-list.ui-sortable .ui-sortable-placeholder td{border-color:#bbb;background-color:#FCFCFC; height:32px; background-image: none; -moz-border-radius: 6px 6px 6px 6px; border: 3px dashed #E6E6E6; -webkit-border-radius: 4px;-moz-border-radius: 4px;border-radius: 4px; box-sizing: border-box;}
+ 
+ 
+-#the-list.ui-sortable > tr > th:first-child:after {position: absolute; color: #959595;  content: "\f475"; transform: rotate(-90deg);    margin: 4px 0 0 6px;  display: block; font-family: dashicons;
++#the-list.ui-sortable > tr > th:first-child:after {position: absolute; color: #959595;  content: "\f475"; transform: rotate(-90deg);    margin: 4px 0 0 6px;  display: none; font-family: dashicons;
+ line-height: 1;
+ font-weight: 400;
+ font-style: normal;
+ text-transform: none;
+ text-rendering: auto;
+ font-size: 20px;
+-text-align: center;}
+\ No newline at end of file
++text-align: center;}
++
++#the-list.ui-sortable > tr:hover > th:first-child:after { display: block; }
+\ No newline at end of file
+diff --git a/wordpress/wp-content/plugins/post-types-order/css/cpt.css b/wordpress/wp-content/plugins/post-types-order/css/cpt.css
+--- a/wordpress/wp-content/plugins/post-types-order/css/cpt.css
++++ b/wordpress/wp-content/plugins/post-types-order/css/cpt.css
+@@ -12,7 +12,6 @@
+ #cpto #cpt_info_box {padding: 0 10px; border: 1px dashed #6aadcc; background-color: #FFF; margin-top: 10px;-webkit-box-shadow: 1px 1px 7px rgba(50, 50, 50, 0.17);-moz-box-shadow:    1px 1px 7px rgba(50, 50, 50, 0.17);box-shadow:         1px 1px 7px rgba(50, 50, 50, 0.17);}
+ #cpto #cpt_info_box a {text-decoration: none}
+ #cpto #cpt_info_box #donate_form { padding: 20px 0 17px;    text-align: center;    width: 100%;}
+-.menu_pto {margin-right: 4px; display: inline; vertical-align: middle; margin-top: -1px;}  
+ 
+ #cpto #p_right {float: right; background-color:#f5f5f5; border: 1px dashed #6aadcc; padding: 0px 10px; margin-top: 10px}
+ #cpto .p_s_item {float: right; padding: 0px 5px; margin-top: 10px; margin-bottom: 5px; }
+diff --git a/wordpress/wp-content/plugins/post-types-order/include/class.cpto.php b/wordpress/wp-content/plugins/post-types-order/include/class.cpto.php
+--- a/wordpress/wp-content/plugins/post-types-order/include/class.cpto.php
++++ b/wordpress/wp-content/plugins/post-types-order/include/class.cpto.php
+@@ -238,7 +238,7 @@
+                     $options_interface  =    new CptoOptionsInterface();
+                     $options_interface->check_options_update();
+                     
+-                    $hookID   =     add_options_page('Post Types Order', '<img class="menu_pto" src="'. CPTURL .'/images/menu-icon.png" alt="" /> Post Types Order', 'manage_options', 'cpto-options', array($options_interface, 'plugin_options_interface'));
++                    $hookID   =     add_options_page('Post Types Order', 'Post Types Order', 'manage_options', 'cpto-options', array($options_interface, 'plugin_options_interface'));
+                     add_action('admin_print_styles-' . $hookID ,    array($this, 'admin_options_print_styles'));
+                 }    
+             
+diff --git a/wordpress/wp-content/plugins/post-types-order/include/class.functions.php b/wordpress/wp-content/plugins/post-types-order/include/class.functions.php
+--- a/wordpress/wp-content/plugins/post-types-order/include/class.functions.php
++++ b/wordpress/wp-content/plugins/post-types-order/include/class.functions.php
+@@ -63,7 +63,7 @@
+             *     
+             */
+             function cpt_info_box()
+-                {
++                { return;
+                     ?>
+                         <div id="cpt_info_box">
+                                        <p><?php esc_html_e('Did you find this plugin useful? Please support our work by purchasing the advanced version or write an article about this plugin in your blog with a link to our site', 'post-types-order') ?> <a href="https://www.nsp-code.com/" target="_blank"><strong>https://www.nsp-code.com/</strong></a>.</p>

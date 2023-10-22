@@ -83,3 +83,11 @@ Example:
 
 ### `disable-upsell.diff`
 - Removes additional plugin offers
+
+
+## Plugin: post-types-order (2.1)
+
+### `multi-patch.diff`
+- Remove icon in submenu
+- Display move handler on mouse hover
+- Hide ads
