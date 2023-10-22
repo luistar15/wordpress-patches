@@ -1,0 +1,20 @@
+diff --git a/wordpress/wp-content/plugins/wp-svg-images/wp-svg-images.php b/wordpress/wp-content/plugins/wp-svg-images/wp-svg-images.php
+--- a/wordpress/wp-content/plugins/wp-svg-images/wp-svg-images.php
++++ b/wordpress/wp-content/plugins/wp-svg-images/wp-svg-images.php
+@@ -68,8 +68,6 @@ if( ! class_exists('WPSVG') ){
+ 
+ 			add_action( 'admin_notices', array( $this, 'admin_notices' ) );
+ 			add_action( 'wp_ajax_wpsvg_notice_dismissed', array( $this, 'wpsvg_notice_dismissed' ) );
+-
+-			add_action( 'admin_init', array( $this, 'upsell' ) );
+ 		}
+ 
+ 		function upsell(){
+@@ -271,7 +269,6 @@ if( ! class_exists('WPSVG') ){
+ 							<p class="submit"><input type="submit" class="button button-primary button-large" value="<?php _e( 'Save', 'wpsvg' ) ?>"></p>
+ 						</form>
+ 					</section>
+-					<?php if( ! $this->spio_installed || ! $this->spio_active ) include_once('upsell.php') ?>
+ 				</div>
+ 			</div><?php
+ 		}
