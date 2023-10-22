@@ -59,6 +59,9 @@ Example:
 - Use SGS_ENCRYPTION_KEY constant instead of file
 - https://wordpress.org/support/topic/read-sgs_encryption_key-from-constant-instead-of-file/
 
+### `disable-block-user-by-ip-check.diff`
+- Disables checking blocked users by ip
+
 
 ## Plugin: enable-media-replace (4.1.4)
 
@@ -77,3 +80,6 @@ Example:
 
 ### `fix-missing-svg-size.diff`
 - Removes unnecesary sql queries when trying to fix missing svg size
+
+### `disable-upsell.diff`
+- Removes additional plugin offers

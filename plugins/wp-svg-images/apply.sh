@@ -5,3 +5,5 @@ set -e
 CURRENT_DIR=$( cd -- "$( dirname -- "${BASH_SOURCE[0]}" )" &> /dev/null && pwd )
 
 git apply --verbose --no-index --ignore-whitespace $CURRENT_DIR/fix-missing-svg-size.diff
+
+git apply --verbose --no-index --ignore-whitespace $CURRENT_DIR/disable-upsell.diff
