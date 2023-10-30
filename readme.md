@@ -62,9 +62,6 @@ Example:
 ### `disable-block-user-by-ip-check.diff`
 - Disables checking blocked users by ip
 
-### `fix-long-title.diff`
-- Fixes the long plugin title
-
 
 ## Plugin: enable-media-replace (4.1.4)
 

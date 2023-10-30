@@ -9,5 +9,3 @@ git apply --verbose --no-index --ignore-whitespace $CURRENT_DIR/capture-real-ip.
 git apply --verbose --no-index --ignore-whitespace $CURRENT_DIR/encryption-key-constant.diff
 
 git apply --verbose --no-index --ignore-whitespace $CURRENT_DIR/disable-block-user-by-ip-check.diff
-
-git apply --verbose --no-index --ignore-whitespace $CURRENT_DIR/fix-long-title.diff
