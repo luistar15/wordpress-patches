@@ -49,7 +49,7 @@ Example:
 - Clone $_POST var before addslashes
 
 
-## Plugin: sg-security (1.4.6)
+## Plugin: sg-security (1.4.8)
 
 ### `capture-real-ip.diff`
 - Fix capture user real ip

@@ -1,7 +1,7 @@
 diff --git a/wordpress/wp-content/plugins/sg-security/core/Loader/Loader.php b/wordpress/wp-content/plugins/sg-security/core/Loader/Loader.php
 --- a/wordpress/wp-content/plugins/sg-security/core/Loader/Loader.php
 +++ b/wordpress/wp-content/plugins/sg-security/core/Loader/Loader.php
-@@ -553,7 +553,7 @@ class Loader {
+@@ -550,7 +550,7 @@ class Loader {
  	 */
  	public function add_block_service_hooks() {
  		// Block user by ip.
