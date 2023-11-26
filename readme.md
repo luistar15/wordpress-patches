@@ -91,3 +91,11 @@ Example:
 - Remove icon in submenu
 - Display move handler on mouse hover
 - Hide ads
+
+
+## Plugin: meta-box (5.9)
+
+### `remove-unuse-third-party-support.diff`
+- Remove WPML Compatibility
+- Remove categories for page builders (Oxygen,Elementor,Bricks)
+- Remove About admin page

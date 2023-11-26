@@ -1,0 +1,34 @@
+diff --git a/wordpress/wp-content/plugins/meta-box/inc/loader.php b/wordpress/wp-content/plugins/meta-box/inc/loader.php
+--- a/wordpress/wp-content/plugins/meta-box/inc/loader.php
++++ b/wordpress/wp-content/plugins/meta-box/inc/loader.php
+@@ -95,30 +95,6 @@ class RWMB_Loader {
+ 		$media_modal = new RWMB_Media_Modal();
+ 		$media_modal->init();
+ 
+-		// WPML Compatibility.
+-		$wpml = new RWMB_WPML();
+-		$wpml->init();
+-
+-		// Update.
+-		$update_option  = new \MetaBox\Updater\Option();
+-		$update_checker = new \MetaBox\Updater\Checker( $update_option );
+-		$update_checker->init();
+-		$update_settings = new \MetaBox\Updater\Settings( $update_checker, $update_option );
+-		$update_settings->init();
+-		$update_notification = new \MetaBox\Updater\Notification( $update_checker, $update_option );
+-		$update_notification->init();
+-
+-		// Register categories for page builders.
+-		new \MetaBox\Block\Register();
+-		new \MetaBox\Oxygen\Register();
+-		new \MetaBox\Elementor\Register();
+-		new \MetaBox\Bricks\Register();
+-
+-		if ( is_admin() ) {
+-			$about = new RWMB_About( $update_checker );
+-			$about->init();
+-		}
+-
+ 		// Public functions.
+ 		require_once RWMB_INC_DIR . 'functions.php';
+ 	}
