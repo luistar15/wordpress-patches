@@ -28,7 +28,7 @@ Example:
 > bash /path/to/patches/core/apply.sh
 ```
 
-## Wordpress core (6.3.2)
+## Wordpress core (6.4)
 
 ### `track-22895.diff`
 - Access denied to custom post type listing in admin when his submenu is empty

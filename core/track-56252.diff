@@ -1,14 +1,13 @@
 diff --git a/wordpress/wp-includes/load.php b/wordpress/wp-includes/load.php
 --- a/wordpress/wp-includes/load.php
 +++ b/wordpress/wp-includes/load.php
-@@ -457,7 +457,12 @@ function wp_debug_mode() {
+@@ -574,7 +574,11 @@ function wp_debug_mode() {
  	}
  
  	if ( WP_DEBUG ) {
 -		error_reporting( E_ALL );
 +		if ( defined( 'WP_DEBUG_ERROR_LEVEL' ) ) {
 +			error_reporting( WP_DEBUG_ERROR_LEVEL );
-+
 +		} else {
 +			error_reporting( E_ALL );
 +		}
