@@ -48,8 +48,11 @@ Example:
 ### `clone-post.diff`
 - Clone $_POST var before addslashes
 
+### `theme.json.diff`
+- Remove default color palette, grandients and duotone presets
 
-## Plugin: sg-security (1.4.8)
+
+## Plugin: sg-security (1.4.10)
 
 ### `capture-real-ip.diff`
 - Fix capture user real ip
@@ -63,14 +66,14 @@ Example:
 - Disables checking blocked users by ip
 
 
-## Plugin: enable-media-replace (4.1.4)
+## Plugin: enable-media-replace (4.1.5)
 
 ### `disable-bg-remove.diff`
 - Disable background remover
 - Skip success screen
 
 
-## Plugin: slim-seo (3.22.2)
+## Plugin: slim-seo (3.23.1)
 
 ### `remove-review-links.diff`
 - Remove noisy review link in plugins list
@@ -85,7 +88,7 @@ Example:
 - Removes additional plugin offers
 
 
-## Plugin: post-types-order (2.1)
+## Plugin: post-types-order (2.1.4)
 
 ### `multi-patch.diff`
 - Remove icon in submenu
@@ -93,7 +96,7 @@ Example:
 - Hide ads
 
 
-## Plugin: meta-box (5.9)
+## Plugin: meta-box (5.9.3)
 
 ### `remove-unuse-third-party-support.diff`
 - Remove WPML Compatibility
