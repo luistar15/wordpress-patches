@@ -51,6 +51,9 @@ Example:
 ### `theme.json.diff`
 - Remove default color palette, grandients and duotone presets
 
+### `theme-json.php.diff`
+- Remove `!important` from css `var()` calls
+
 
 ## Plugin: sg-security (1.4.10)
 

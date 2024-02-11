@@ -1,0 +1,12 @@
+diff --git a/wordpress/wp-includes/class-wp-theme-json.php b/wordpress/wp-includes/class-wp-theme-json.php
+--- a/wordpress/wp-includes/class-wp-theme-json.php
++++ b/wordpress/wp-includes/class-wp-theme-json.php
+@@ -1616,7 +1616,7 @@ class WP_Theme_JSON {
+ 						array(
+ 							array(
+ 								'name'  => $property,
+-								'value' => 'var(' . $css_var . ') !important',
++								'value' => 'var(' . $css_var . ')',
+ 							),
+ 						)
+ 					);
