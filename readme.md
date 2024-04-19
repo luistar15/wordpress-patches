@@ -28,7 +28,7 @@ Example:
 > bash /path/to/patches/core/apply.sh
 ```
 
-## Wordpress core (6.4)
+## Wordpress core (6.5)
 
 ### `track-22895.diff`
 - Access denied to custom post type listing in admin when his submenu is empty
@@ -55,7 +55,7 @@ Example:
 - Remove `!important` from css `var()` calls
 
 
-## Plugin: sg-security (1.4.10)
+## Plugin: sg-security (1.4.13)
 
 ### `capture-real-ip.diff`
 - Fix capture user real ip
@@ -76,7 +76,7 @@ Example:
 - Skip success screen
 
 
-## Plugin: slim-seo (3.23.1)
+## Plugin: slim-seo (3.23.3)
 
 ### `remove-review-links.diff`
 - Remove noisy review link in plugins list
@@ -91,7 +91,7 @@ Example:
 - Removes additional plugin offers
 
 
-## Plugin: post-types-order (2.1.4)
+## Plugin: post-types-order (2.2.1)
 
 ### `multi-patch.diff`
 - Remove icon in submenu
