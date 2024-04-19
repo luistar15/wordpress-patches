@@ -1,7 +1,7 @@
 diff --git a/wordpress/wp-content/plugins/meta-box/inc/loader.php b/wordpress/wp-content/plugins/meta-box/inc/loader.php
 --- a/wordpress/wp-content/plugins/meta-box/inc/loader.php
 +++ b/wordpress/wp-content/plugins/meta-box/inc/loader.php
-@@ -95,30 +95,6 @@ class RWMB_Loader {
+@@ -96,30 +96,6 @@ class RWMB_Loader {
  		$media_modal = new RWMB_Media_Modal();
  		$media_modal->init();
  
@@ -19,10 +19,10 @@ diff --git a/wordpress/wp-content/plugins/meta-box/inc/loader.php b/wordpress/wp
 -		$update_notification->init();
 -
 -		// Register categories for page builders.
--		new \MetaBox\Block\Register();
--		new \MetaBox\Oxygen\Register();
--		new \MetaBox\Elementor\Register();
--		new \MetaBox\Bricks\Register();
+-		new \MetaBox\Integrations\Block();
+-		new \MetaBox\Integrations\Bricks;
+-		new \MetaBox\Integrations\Elementor;
+-		new \MetaBox\Integrations\Oxygen();
 -
 -		if ( is_admin() ) {
 -			$about = new RWMB_About( $update_checker );

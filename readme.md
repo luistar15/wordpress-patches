@@ -99,7 +99,7 @@ Example:
 - Hide ads
 
 
-## Plugin: meta-box (5.9.3)
+## Plugin: meta-box (5.9.7)
 
 ### `remove-unuse-third-party-support.diff`
 - Remove WPML Compatibility
