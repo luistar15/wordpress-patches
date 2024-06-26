@@ -1,0 +1,38 @@
+diff --git a/wordpress/wp-content/plugins/nginx-helper/admin/class-nginx-helper-admin.php b/wordpress/wp-content/plugins/nginx-helper/admin/class-nginx-helper-admin.php
+--- a/wordpress/wp-content/plugins/nginx-helper/admin/class-nginx-helper-admin.php
++++ b/wordpress/wp-content/plugins/nginx-helper/admin/class-nginx-helper-admin.php
+@@ -572,7 +572,7 @@ class Nginx_Helper_Admin {
+ 	 */
+ 	public function update_map() {
+ 
+-		if ( is_multisite() ) {
++		if ( $this->options['enable_map'] && is_multisite() ) {
+ 
+ 			$rt_nginx_map = $this->get_map();
+ 
+@@ -677,10 +677,12 @@ class Nginx_Helper_Admin {
+ 	 *
+ 	 * @param string $blog_id blog id.
+ 	 */
+-	public function update_new_blog_options( $blog_id ) {
++	public function update_new_blog_options( $site ) {
+ 
+ 		global $nginx_purger;
+ 
++		$blog_id = $site->blog_id;
++
+ 		$nginx_purger->log( "New site added ( id $blog_id )" );
+ 		$this->update_map();
+ 		$nginx_purger->log( "New site added to nginx map ( id $blog_id )" );
+diff --git a/wordpress/wp-content/plugins/nginx-helper/includes/class-nginx-helper.php b/wordpress/wp-content/plugins/nginx-helper/includes/class-nginx-helper.php
+--- a/wordpress/wp-content/plugins/nginx-helper/includes/class-nginx-helper.php
++++ b/wordpress/wp-content/plugins/nginx-helper/includes/class-nginx-helper.php
+@@ -218,7 +218,7 @@ class Nginx_Helper {
+ 		$this->loader->add_action( 'delete_post', $nginx_helper_admin, 'unset_future_post_option_on_delete', 20, 1 );
+ 		$this->loader->add_action( 'rt_wp_nginx_helper_check_log_file_size_daily', $nginx_purger, 'check_and_truncate_log_file', 100, 1 );
+ 		$this->loader->add_action( 'edit_attachment', $nginx_purger, 'purge_image_on_edit', 100, 1 );
+-		$this->loader->add_action( 'wpmu_new_blog', $nginx_helper_admin, 'update_new_blog_options', 10, 1 );
++		$this->loader->add_action( 'wp_initialize_site', $nginx_helper_admin, 'update_new_blog_options', 10, 1 );
+ 		$this->loader->add_action( 'transition_post_status', $nginx_purger, 'purge_on_post_moved_to_trash', 20, 3 );
+ 		$this->loader->add_action( 'edit_term', $nginx_purger, 'purge_on_term_taxonomy_edited', 20, 3 );
+ 		$this->loader->add_action( 'delete_term', $nginx_purger, 'purge_on_term_taxonomy_edited', 20, 3 );

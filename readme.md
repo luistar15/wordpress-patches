@@ -105,3 +105,9 @@ Example:
 - Remove WPML Compatibility
 - Remove categories for page builders (Oxygen,Elementor,Bricks)
 - Remove About admin page
+
+
+## Plugin: nginx-helper (2.2.5)
+
+### `deprecated-filter-wpmu_new_blog.diff`
+- Fix deprectaed wpmu_new_blog filter
