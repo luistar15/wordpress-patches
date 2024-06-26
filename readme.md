@@ -45,9 +45,6 @@ Example:
 - https://core.trac.wordpress.org/ticket/56521
 - https://github.com/WordPress/wordpress-develop/pull/3200
 
-### `clone-post.diff`
-- Clone $_POST var before addslashes
-
 ### `theme.json.diff`
 - Remove default color palette, grandients and duotone presets
 
