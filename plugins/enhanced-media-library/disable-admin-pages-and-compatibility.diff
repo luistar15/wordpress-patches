@@ -1,0 +1,154 @@
+diff --git a/wordpress/wp-content/plugins/enhanced-media-library/core/options-pages.php b/wordpress/wp-content/plugins/enhanced-media-library/core/options-pages.php
+--- a/wordpress/wp-content/plugins/enhanced-media-library/core/options-pages.php
++++ b/wordpress/wp-content/plugins/enhanced-media-library/core/options-pages.php
+@@ -74,7 +74,7 @@ function wpuxss_eml_register_setting() {
+  *  @created  28/04/18
+  */
+ 
+-add_action( 'admin_menu', 'wpuxss_eml_admin_media_menu', 12 );
++// add_action( 'admin_menu', 'wpuxss_eml_admin_media_menu', 12 );
+ 
+ function wpuxss_eml_admin_media_menu() {
+ 
+@@ -141,7 +141,7 @@ function wpuxss_eml_admin_media_menu() {
+  *  @created  28/04/18
+  */
+ 
+-add_action( 'admin_menu', 'wpuxss_eml_admin_utility_menu' );
++// add_action( 'admin_menu', 'wpuxss_eml_admin_utility_menu' );
+ 
+ function wpuxss_eml_admin_utility_menu() {
+ 
+@@ -174,7 +174,7 @@ function wpuxss_eml_admin_utility_menu() {
+  *  @created  22/04/18
+  */
+ 
+-add_action( 'network_admin_menu', 'wpuxss_eml_network_admin_menu' );
++// add_action( 'network_admin_menu', 'wpuxss_eml_network_admin_menu' );
+ 
+ function wpuxss_eml_network_admin_menu() {
+ 
+@@ -201,7 +201,7 @@ function wpuxss_eml_network_admin_menu() {
+  *  @created  04/03/18
+  */
+ 
+-add_action( 'admin_menu', 'wpuxss_eml_submenu_order', 1001 );
++// add_action( 'admin_menu', 'wpuxss_eml_submenu_order', 1001 );
+ 
+ function wpuxss_eml_submenu_order() {
+ 
+@@ -1123,7 +1123,7 @@ function wpuxss_eml_print_network_settings() {
+  *  @created  21/06/18
+  */
+ 
+-add_action( 'wp_ajax_eml-apply-settings-to-network', 'wpuxss_eml_apply_settings_to_network' );
++// add_action( 'wp_ajax_eml-apply-settings-to-network', 'wpuxss_eml_apply_settings_to_network' );
+ 
+ function wpuxss_eml_apply_settings_to_network() {
+ 
+@@ -1180,7 +1180,7 @@ function wpuxss_eml_apply_settings_to_network() {
+  *  @created  28/04/18
+  */
+ 
+-add_action( 'network_admin_menu', 'wpuxss_eml_update_network_settings' );
++// add_action( 'network_admin_menu', 'wpuxss_eml_update_network_settings' );
+ 
+ function wpuxss_eml_update_network_settings() {
+ 
+@@ -1216,7 +1216,7 @@ function wpuxss_eml_update_network_settings() {
+  *  @created  25/10/15
+  */
+ 
+-add_action( 'admin_init', 'wpuxss_eml_settings_export' );
++// add_action( 'admin_init', 'wpuxss_eml_settings_export' );
+ 
+ function wpuxss_eml_settings_export() {
+ 
+@@ -1261,7 +1261,7 @@ function wpuxss_eml_settings_export() {
+  *  @created  25/10/15
+  */
+ 
+-add_action( 'admin_init', 'wpuxss_eml_settings_import' );
++// add_action( 'admin_init', 'wpuxss_eml_settings_import' );
+ 
+ function wpuxss_eml_settings_import() {
+ 
+@@ -1341,7 +1341,7 @@ function wpuxss_eml_settings_import() {
+  *  @created  25/10/15
+  */
+ 
+-add_action( 'admin_init', 'wpuxss_eml_settings_restoring' );
++// add_action( 'admin_init', 'wpuxss_eml_settings_restoring' );
+ 
+ function wpuxss_eml_settings_restoring() {
+ 
+@@ -1391,7 +1391,7 @@ function wpuxss_eml_settings_restoring() {
+  *  @created  23/02/16
+  */
+ 
+-add_action( 'admin_init', 'wpuxss_eml_settings_cleanup' );
++// add_action( 'admin_init', 'wpuxss_eml_settings_cleanup' );
+ 
+ function wpuxss_eml_settings_cleanup() {
+ 
+@@ -2685,7 +2685,7 @@ function wpuxss_eml_settings_link( $links ) {
+  *  @created  11/04/15
+  */
+ 
+-add_filter( 'plugin_row_meta', 'wpuxss_eml_plugin_row_meta', 10, 2 );
++// add_filter( 'plugin_row_meta', 'wpuxss_eml_plugin_row_meta', 10, 2 );
+ 
+ function wpuxss_eml_plugin_row_meta( $links, $file ) {
+ 
+@@ -2710,7 +2710,7 @@ function wpuxss_eml_plugin_row_meta( $links, $file ) {
+  *  @created  2024/03
+  */
+ 
+-add_action( 'admin_init', 'wpuxss_eml_maybe_new_notice' );
++// add_action( 'admin_init', 'wpuxss_eml_maybe_new_notice' );
+ 
+ function wpuxss_eml_maybe_new_notice() {
+ 
+@@ -2888,8 +2888,8 @@ function wpuxss_eml_maybe_new_notice() {
+  *  @created  2024/04
+  */
+ 
+-add_action( 'admin_notices', 'wpuxss_eml_admin_notice' );
+-add_action( 'network_admin_notices', 'wpuxss_eml_admin_notice' );
++// add_action( 'admin_notices', 'wpuxss_eml_admin_notice' );
++// add_action( 'network_admin_notices', 'wpuxss_eml_admin_notice' );
+ 
+ function wpuxss_eml_admin_notice() {
+ 
+@@ -2997,7 +2997,7 @@ function wpuxss_eml_admin_notice() {
+  *  @created  2024/04
+  */
+ 
+-add_action( 'wp_ajax_eml-admin-notice-dismiss', 'wpuxss_eml_admin_notice_dismiss' );
++// add_action( 'wp_ajax_eml-admin-notice-dismiss', 'wpuxss_eml_admin_notice_dismiss' );
+ 
+ function wpuxss_eml_admin_notice_dismiss() {
+ 
+diff --git a/wordpress/wp-content/plugins/enhanced-media-library/enhanced-media-library.php b/wordpress/wp-content/plugins/enhanced-media-library/enhanced-media-library.php
+--- a/wordpress/wp-content/plugins/enhanced-media-library/enhanced-media-library.php
++++ b/wordpress/wp-content/plugins/enhanced-media-library/enhanced-media-library.php
+@@ -168,8 +168,8 @@ if ( ! function_exists( 'wpuxss_get_eml_slug' ) ) {
+ 
+ 
+         // plugin action links
+-        add_filter( 'plugin_action_links_' . wpuxss_get_eml_basename(), 'wpuxss_eml_settings_link' );
+-        add_filter( 'network_admin_plugin_action_links_' . wpuxss_get_eml_basename(), 'wpuxss_eml_settings_link' );
++        // add_filter( 'plugin_action_links_' . wpuxss_get_eml_basename(), 'wpuxss_eml_settings_link' );
++        // add_filter( 'network_admin_plugin_action_links_' . wpuxss_get_eml_basename(), 'wpuxss_eml_settings_link' );
+     }
+ 
+ 
+@@ -923,7 +923,7 @@ if ( ! function_exists( 'wpuxss_get_eml_slug' ) ) {
+     include_once( 'core/mime-types.php' );
+     include_once( 'core/taxonomies.php' );
+     include_once( 'core/media-templates.php' );
+-    include_once( 'core/compatibility.php' );
++    // include_once( 'core/compatibility.php' );
+ 
+     if ( wpuxss_eml_enhance_media_shortcodes() ) {
+         include_once( 'core/medialist.php' );

@@ -108,3 +108,10 @@ Example:
 
 ### `deprecated-filter-wpmu_new_blog.diff`
 - Fix deprectaed wpmu_new_blog filter
+
+
+## Plugin: enhanced-media-library (2.9.3)
+
+### `disable-admin-pages-and-compatibility.diff`
+- Disable compatibility
+- Disable admin pages
