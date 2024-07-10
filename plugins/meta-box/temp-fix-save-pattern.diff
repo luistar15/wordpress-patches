@@ -1,0 +1,14 @@
+diff --git a/wordpress/wp-content/plugins/meta-box/js/validation/jquery.validate.js b/wordpress/wp-content/plugins/meta-box/js/validation/jquery.validate.js
+--- a/wordpress/wp-content/plugins/meta-box/js/validation/jquery.validate.js
++++ b/wordpress/wp-content/plugins/meta-box/js/validation/jquery.validate.js
+@@ -123,6 +123,10 @@ $.extend( $.fn, {
+ 	valid: function() {
+ 		var valid, validator, errorList;
+ 
++		if ( $( this ).length === 0 ) {
++			return true;
++		}
++
+ 		if ( $( this[ 0 ] ).is( "form" ) ) {
+ 			valid = this.validate().form();
+ 		} else {

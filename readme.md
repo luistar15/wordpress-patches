@@ -103,6 +103,10 @@ Example:
 - Remove categories for page builders (Oxygen,Elementor,Bricks)
 - Remove About admin page
 
+## `temp-fix-save-pattern.diff`
+- Fix an error in site editor when saving patterns
+- https://wordpress.org/support/topic/error-saving-custom-patterns-and-template-parts-in-wp-6-6/
+
 
 ## Plugin: nginx-helper (2.2.5)
 
