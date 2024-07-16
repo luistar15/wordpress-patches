@@ -114,7 +114,7 @@ Example:
 - Fix deprectaed wpmu_new_blog filter
 
 
-## Plugin: enhanced-media-library (2.9.3)
+## Plugin: enhanced-media-library (2.9.4)
 
 ### `disable-admin-pages-and-compatibility.diff`
 - Disable compatibility

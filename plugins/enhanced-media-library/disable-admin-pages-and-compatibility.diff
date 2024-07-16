@@ -91,16 +91,7 @@ diff --git a/wordpress/wp-content/plugins/enhanced-media-library/core/options-pa
  
  function wpuxss_eml_settings_cleanup() {
  
-@@ -2685,7 +2685,7 @@ function wpuxss_eml_settings_link( $links ) {
-  *  @created  11/04/15
-  */
- 
--add_filter( 'plugin_row_meta', 'wpuxss_eml_plugin_row_meta', 10, 2 );
-+// add_filter( 'plugin_row_meta', 'wpuxss_eml_plugin_row_meta', 10, 2 );
- 
- function wpuxss_eml_plugin_row_meta( $links, $file ) {
- 
-@@ -2710,7 +2710,7 @@ function wpuxss_eml_plugin_row_meta( $links, $file ) {
+@@ -2658,7 +2658,7 @@ function wpuxss_eml_print_credits() { ?>
   *  @created  2024/03
   */
  
@@ -109,7 +100,7 @@ diff --git a/wordpress/wp-content/plugins/enhanced-media-library/core/options-pa
  
  function wpuxss_eml_maybe_new_notice() {
  
-@@ -2888,8 +2888,8 @@ function wpuxss_eml_maybe_new_notice() {
+@@ -2836,8 +2836,8 @@ function wpuxss_eml_maybe_new_notice() {
   *  @created  2024/04
   */
  
@@ -120,7 +111,7 @@ diff --git a/wordpress/wp-content/plugins/enhanced-media-library/core/options-pa
  
  function wpuxss_eml_admin_notice() {
  
-@@ -2997,7 +2997,7 @@ function wpuxss_eml_admin_notice() {
+@@ -2945,7 +2945,7 @@ function wpuxss_eml_admin_notice() {
   *  @created  2024/04
   */
  
@@ -132,18 +123,33 @@ diff --git a/wordpress/wp-content/plugins/enhanced-media-library/core/options-pa
 diff --git a/wordpress/wp-content/plugins/enhanced-media-library/enhanced-media-library.php b/wordpress/wp-content/plugins/enhanced-media-library/enhanced-media-library.php
 --- a/wordpress/wp-content/plugins/enhanced-media-library/enhanced-media-library.php
 +++ b/wordpress/wp-content/plugins/enhanced-media-library/enhanced-media-library.php
-@@ -168,8 +168,8 @@ if ( ! function_exists( 'wpuxss_get_eml_slug' ) ) {
+@@ -168,16 +168,16 @@ if ( ! function_exists( 'wpuxss_get_eml_slug' ) ) {
  
  
          // plugin action links
--        add_filter( 'plugin_action_links_' . wpuxss_get_eml_basename(), 'wpuxss_eml_settings_link' );
--        add_filter( 'network_admin_plugin_action_links_' . wpuxss_get_eml_basename(), 'wpuxss_eml_settings_link' );
-+        // add_filter( 'plugin_action_links_' . wpuxss_get_eml_basename(), 'wpuxss_eml_settings_link' );
-+        // add_filter( 'network_admin_plugin_action_links_' . wpuxss_get_eml_basename(), 'wpuxss_eml_settings_link' );
+-        add_filter( 
+-            'plugin_action_links_' . wpuxss_get_eml_basename(),
+-            'wpuxss_eml_settings_link', 10, 4 
+-        );
+-        add_filter( 
+-            'network_admin_plugin_action_links_' . wpuxss_get_eml_basename(),
+-            'wpuxss_eml_settings_link', 10, 4 
+-        );
++        // add_filter( 
++        //     'plugin_action_links_' . wpuxss_get_eml_basename(),
++        //     'wpuxss_eml_settings_link', 10, 4 
++        // );
++        // add_filter( 
++        //     'network_admin_plugin_action_links_' . wpuxss_get_eml_basename(),
++        //     'wpuxss_eml_settings_link', 10, 4 
++        // );
+ 
+-        add_filter( 'plugin_row_meta', 'wpuxss_eml_plugin_row_meta', 10, 4 );
++        // add_filter( 'plugin_row_meta', 'wpuxss_eml_plugin_row_meta', 10, 4 );
      }
  
  
-@@ -923,7 +923,7 @@ if ( ! function_exists( 'wpuxss_get_eml_slug' ) ) {
+@@ -991,7 +991,7 @@ if ( ! function_exists( 'wpuxss_get_eml_slug' ) ) {
      include_once( 'core/mime-types.php' );
      include_once( 'core/taxonomies.php' );
      include_once( 'core/media-templates.php' );
