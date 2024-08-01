@@ -15,7 +15,7 @@ diff --git a/wordpress/wp-content/plugins/sg-security/core/Custom_Login_Url/Cust
 -		if ( empty( $matches[3] ) ) {
 -			return $url;
 -		}
-+		if ( preg_match( '~^[\?|&]action=([^&]*)~', $path, $matches ) ) {
++		if ( preg_match( '~[\?&]action=([^&]*)~', $path, $matches ) ) {
 +			switch ( $matches[1] ) {
 +				case 'postpass':
 +					return $url;
