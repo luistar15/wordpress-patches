@@ -1,0 +1,45 @@
+diff --git a/wordpress/wp-content/plugins/sg-security/core/Custom_Login_Url/Custom_Login_Url.php b/wordpress/wp-content/plugins/sg-security/core/Custom_Login_Url/Custom_Login_Url.php
+--- a/wordpress/wp-content/plugins/sg-security/core/Custom_Login_Url/Custom_Login_Url.php
++++ b/wordpress/wp-content/plugins/sg-security/core/Custom_Login_Url/Custom_Login_Url.php
+@@ -53,25 +53,26 @@ class Custom_Login_Url {
+ 		// Get the url path.
+ 		$path = Helper::get_url_path( $path ); //phpcs:ignore
+ 
+-		preg_match( '~^(.*)\/(wp-login.php)(?:.*)?[\?|&]action=(.*?)(?:\?|&|$)~', $path, $matches );
+-
+-		if ( empty( $matches[2] ) ) {
++		if ( strpos( $path, 'wp-login.php' ) === false ) {
+ 			return $url;
+ 		}
+ 
+-		if ( empty( $matches[3] ) ) {
+-			return $url;
+-		}
++		if ( preg_match( '~^[\?|&]action=([^&]*)~', $path, $matches ) ) {
++			switch ( $matches[1] ) {
++				case 'postpass':
++					return $url;
++				case 'register':
++					$token = 'register';
++					break;
++				case 'rp':
++					return $url;
++			}
+ 
+-		switch ( $matches[3] ) {
+-			case 'postpass':
+-				return $url;
+-			case 'register':
+-				$token = 'register';
+-				break;
+-			case 'rp':
+-				$token = 'login';
+-				return $url;
++		} else if (
++			isset( $_GET[ $this->token ] ) &&
++			$_GET[ $this->token ] === $this->options['new_slug']
++		) {
++			$token = $this->options['new_slug'];
+ 		}
+ 
+ 		// Add the token to the url if not empty.

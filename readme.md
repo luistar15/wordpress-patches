@@ -52,7 +52,7 @@ Example:
 - Remove `!important` from css `var()` calls
 
 
-## Plugin: sg-security (1.4.13)
+## Plugin: sg-security (1.5.2)
 
 ### `capture-real-ip.diff`
 - Fix capture user real ip
@@ -64,6 +64,9 @@ Example:
 
 ### `disable-block-user-by-ip-check.diff`
 - Disables checking blocked users by ip
+
+### `keep-url-token-in-login-form.diff`
+- Keep URL token (sgs-token) in login form
 
 
 ## Plugin: enable-media-replace (4.1.5)
