@@ -62,9 +62,6 @@ Example:
 - Use SGS_ENCRYPTION_KEY constant instead of file
 - https://wordpress.org/support/topic/read-sgs_encryption_key-from-constant-instead-of-file/
 
-### `disable-block-user-by-ip-check.diff`
-- Disables checking blocked users by ip
-
 ### `keep-url-token-in-login-form.diff`
 - Keep URL token (sgs-token) in login form
 
