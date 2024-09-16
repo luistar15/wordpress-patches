@@ -1,0 +1,72 @@
+diff --git a/wordpress/wp-content/plugins/slim-seo/src/Redirection/Database/Redirects.php b/wordpress/wp-content/plugins/slim-seo/src/Redirection/Database/Redirects.php
+--- a/wordpress/wp-content/plugins/slim-seo/src/Redirection/Database/Redirects.php
++++ b/wordpress/wp-content/plugins/slim-seo/src/Redirection/Database/Redirects.php
+@@ -15,7 +15,7 @@ class Redirects {
+ 	}
+ 
+ 	public function exists( string $url ): bool {
+-		$url = Helper::normalize_url( $url );
++		$url = Helper::normalize_url( $url, false, false, false );
+ 
+ 		return count( array_filter( $this->redirects, function ( $redirect ) use ( $url ) {
+ 			return $redirect['from'] === $url;
+@@ -23,8 +23,8 @@ class Redirects {
+ 	}
+ 
+ 	public function update( array $redirect ): string {
+-		$redirect['from'] = Helper::normalize_url( $redirect['from'], false );
+-		$redirect['to']   = Helper::normalize_url( $redirect['to'], true, true, false );
++		$redirect['from'] = Helper::normalize_url( $redirect['from'], false, false, false );
++		$redirect['to']   = Helper::normalize_url( $redirect['to'], false, false, false );
+ 		$redirect['note'] = sanitize_text_field( $redirect['note'] );
+ 		$id               = (string) ( empty( $redirect['id'] ) ? uniqid() : $redirect['id'] );
+ 
+diff --git a/wordpress/wp-content/plugins/slim-seo/src/Redirection/ExportImport.php b/wordpress/wp-content/plugins/slim-seo/src/Redirection/ExportImport.php
+--- a/wordpress/wp-content/plugins/slim-seo/src/Redirection/ExportImport.php
++++ b/wordpress/wp-content/plugins/slim-seo/src/Redirection/ExportImport.php
+@@ -109,8 +109,8 @@ class ExportImport extends Base {
+ 
+ 			$added = true;
+ 
+-			$redirect['from'] = Helper::normalize_url( $redirect['from'], false );
+-			$redirect['to']   = Helper::normalize_url( $redirect['to'], true, true, false );
++			$redirect['from'] = Helper::normalize_url( $redirect['from'], false, false, false );
++			$redirect['to']   = Helper::normalize_url( $redirect['to'], false, false, false );
+ 			$redirect['note'] = sanitize_text_field( $redirect['note'] );
+ 
+ 			$redirects[ uniqid() ] = $redirect;
+diff --git a/wordpress/wp-content/plugins/slim-seo/src/Redirection/Redirection.php b/wordpress/wp-content/plugins/slim-seo/src/Redirection/Redirection.php
+--- a/wordpress/wp-content/plugins/slim-seo/src/Redirection/Redirection.php
++++ b/wordpress/wp-content/plugins/slim-seo/src/Redirection/Redirection.php
+@@ -25,7 +25,7 @@ class Redirection {
+ 		$http_host   = $_SERVER['HTTP_HOST'] ?? ''; // @phpcs:ignore.
+ 		$request_uri = rawurldecode( $_SERVER['REQUEST_URI'] ?? '' ); // @phpcs:ignore.
+ 		$request_url = ( Helper::is_ssl() ? 'https' : 'http' ) . "://{$http_host}{$request_uri}";
+-		$request_url = Helper::normalize_url( $request_url );
++		$request_url = Helper::normalize_url( $request_url, false, false, false );
+ 		$request_url = strtolower( $request_url );
+ 
+ 		foreach ( $redirects as $redirect ) {
+@@ -37,18 +37,17 @@ class Redirection {
+ 
+ 			if ( ! empty( $redirect['ignoreParameters'] ) ) {
+ 				$url_parts   = explode( '?', $current_url );
+-				$current_url = rtrim( $url_parts[0], '/' );
++				$current_url = $url_parts[0];
+ 			}
+ 
+-			$from            = Helper::normalize_url( $redirect['from'], false );
++			$from            = Helper::normalize_url( $redirect['from'], false, false, false );
+ 			$to              = $redirect['to'];
+ 			$should_redirect = false;
+ 
+ 			switch ( $redirect['condition'] ) {
+ 				case 'regex':
+-					$from  = str_replace( '\/', '/', $from );
+-					$from  = str_replace( '/', '\/', $from );
+-					$regex = '/' . $from . '/i';
++					$from  = str_replace( ':', '\:', $from );
++					$regex = ':' . $from . ':i';
+ 
+ 					if ( preg_match( $regex, $current_url ) ) {
+ 						$to              = preg_replace( $regex, $to, $current_url );

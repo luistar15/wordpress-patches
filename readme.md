@@ -73,10 +73,13 @@ Example:
 - Skip success screen
 
 
-## Plugin: slim-seo (3.23.3)
+## Plugin: slim-seo (3.25.3)
 
 ### `remove-review-links.diff`
 - Remove noisy review link in plugins list
+
+### `fix-redirections.diff`
+- Fix redirections triming slashes
 
 
 ## Plugin: wp-svg-images (4.2)
