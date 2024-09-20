@@ -52,7 +52,7 @@ Example:
 - Remove `!important` from css `var()` calls
 
 
-## Plugin: sg-security (1.5.2)
+## Plugin: sg-security (1.5.5)
 
 ### `capture-real-ip.diff`
 - Fix capture user real ip
