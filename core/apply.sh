@@ -13,3 +13,5 @@ git apply --verbose --no-index --ignore-whitespace $CURRENT_DIR/track-56521.diff
 git apply --verbose --no-index --ignore-whitespace $CURRENT_DIR/theme.json.diff
 
 git apply --verbose --no-index --ignore-whitespace $CURRENT_DIR/theme-json.php.diff
+
+git apply --verbose --no-index --ignore-whitespace $CURRENT_DIR/disable-updates.diff

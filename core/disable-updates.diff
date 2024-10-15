@@ -1,0 +1,14 @@
+diff --git a/wordpress/wp-includes/update.php b/wordpress/wp-includes/update.php
+--- a/wordpress/wp-includes/update.php
++++ b/wordpress/wp-includes/update.php
+@@ -1153,6 +1153,10 @@ if ( ( ! is_main_site() && ! is_network_admin() ) || wp_doing_ajax() ) {
+ 	return;
+ }
+ 
++if ( defined('WP_ENVIRONMENT_TYPE') && WP_ENVIRONMENT_TYPE !== 'development' ) {
++	return;
++}
++
+ add_action( 'admin_init', '_maybe_update_core' );
+ add_action( 'wp_version_check', 'wp_version_check' );
+ 

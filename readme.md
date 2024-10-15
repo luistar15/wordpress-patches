@@ -51,6 +51,9 @@ Example:
 ### `theme-json.php.diff`
 - Remove `!important` from css `var()` calls
 
+### `disable-updates.diff`
+- Disable updates if not in development
+
 
 ## Plugin: sg-security (1.5.5)
 
